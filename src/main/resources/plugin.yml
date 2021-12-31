@@ -1,0 +1,21 @@
+name: Dungeon
+version: '${version}'
+main: tv.breaking.dungeon.Dungeon
+api-version: 1.17
+
+commands:
+  rl:
+    description: Reload the Server
+  leave:
+    description: Leave the Server to the Lobby
+  l:
+    description: Leave the Server to the Lobby
+  ping:
+    description: See the ping of you or other players
+  tutorial:
+    description: Teleport to the tutorial World (not permament)
+  world:
+    description: Manage your worlds!
+  starttutorial:
+    description: Starts the tutorial
+
