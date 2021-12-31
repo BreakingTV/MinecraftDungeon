@@ -32,6 +32,7 @@ public class Tutorial implements Listener, CommandExecutor {
             Player player = (Player) sender;
                 PlayingTutorial.add(player.getUniqueId().toString());
                 player.teleport(Bukkit.getWorld("tutorial").getSpawnLocation());
+                new Walls().remove(new Location(player.getWorld(), 284, 141, 29), false);
                 player.sendTitle("§aWelcome to your Adventure!", "§2You can choose where to go!");
 
             // Magic part line: 55
@@ -74,14 +75,5 @@ public class Tutorial implements Listener, CommandExecutor {
 
     public static List<String> getPlayerList() {
         return PlayerList;
-    }
-
-
-    @EventHandler
-    public void onQuit(PlayerQuitEvent e) {
-        Player player = e.getPlayer();
-        if (PlayingTutorial.contains(player.getUniqueId().toString())) {
-            new Walls().remove(new Location(player.getWorld(), 284, 140, 29), false);
-        }
     }
 }
