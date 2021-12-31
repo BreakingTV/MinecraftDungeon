@@ -56,12 +56,12 @@ public class Tutorial implements Listener, CommandExecutor {
         Player player = e.getPlayer();
         if (PlayingTutorial.contains(player.getUniqueId().toString())) {
             // magic Part
-            if (e.getTo().equals(new Location(player.getWorld(), 285, 140, 29)) || e.getTo().equals(new Location(player.getWorld(), 285, 140, 28)) || e.getTo().equals(new Location(player.getWorld(), 285, 140, 30))) {
-                new Walls().add(new Location(player.getWorld(), 284, 140, 29), Material.RED_STAINED_GLASS, false);
+            if ((e.getTo().getBlockX() == 285 && e.getTo().getBlockY() == 140 && e.getTo().getBlockZ() == 29) || (e.getTo().getBlockX() == 285 && e.getTo().getBlockY() == 140 && e.getTo().getBlockZ() == 30) || (e.getTo().getBlockX() == 285 && e.getTo().getBlockY() == 140 && e.getTo().getBlockZ() == 28)) {
+                new Walls().add(new Location(player.getWorld(), 284, 141, 29), Material.RED_STAINED_GLASS, false);
                 player.sendTitle("§9Water", "The Path of the Healer");
             }
         }
-    }
+        }
 
     @EventHandler
     public void onEntityDeath(EntityDeathEvent e) {
