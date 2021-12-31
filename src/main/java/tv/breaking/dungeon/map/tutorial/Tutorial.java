@@ -24,6 +24,7 @@ public class Tutorial implements Listener, CommandExecutor {
 
     public static List<String> PlayerList = new ArrayList<>();
     public static List<String> PlayingTutorial = new ArrayList<>();
+    private boolean enteredRegionWater = false;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -57,8 +58,11 @@ public class Tutorial implements Listener, CommandExecutor {
         if (PlayingTutorial.contains(player.getUniqueId().toString())) {
             // magic Part
             if ((e.getTo().getBlockX() == 285 && e.getTo().getBlockY() == 140 && e.getTo().getBlockZ() == 29) || (e.getTo().getBlockX() == 285 && e.getTo().getBlockY() == 140 && e.getTo().getBlockZ() == 30) || (e.getTo().getBlockX() == 285 && e.getTo().getBlockY() == 140 && e.getTo().getBlockZ() == 28)) {
-                new Walls().add(new Location(player.getWorld(), 284, 141, 29), Material.RED_STAINED_GLASS, false);
-                player.sendTitle("§9Water", "The Path of the Healer");
+                if (!enteredRegionWater) {
+                    new Walls().add(new Location(player.getWorld(), 284, 141, 29), Material.RED_STAINED_GLASS, false);
+                    player.sendTitle("§9Water", "The Path of the Healer");
+                    enteredRegionWater = true;
+                }
             }
         }
         }
